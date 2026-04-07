@@ -3,25 +3,14 @@ pipeline {
 
     tools {
         maven 'Maven'
+        jdk 'JDK'
     }
 
     stages {
 
-        stage('Checkout Code') {
+        stage('Build & Test') {
             steps {
-                git 'https://github.com/VinaySonwane/Selenium_test.git'
-            }
-        }
-
-        stage('Build') {
-            steps {
-                bat 'mvn clean compile'
-            }
-        }
-
-        stage('Run Tests') {
-            steps {
-                bat 'mvn test'
+                bat 'mvn clean test'
             }
         }
     }
